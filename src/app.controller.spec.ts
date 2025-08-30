@@ -51,8 +51,8 @@ describe('AppController (e2e)', () => {
 
     //BEGIN /validate-rut
     it.each([//casos correctos
-        ['1-8', 'Rut valido num1'],
-        ['1-9', 'Rut valido'],
+        ['10663351-7', 'Rut valido num1'],
+        ['5409856-1', 'Rut valido'],
     ])('Deberia retornar 200 porque es un rut valido: %s (%s)', async (rut, descripcion) => {
         return await request(app.getHttpServer())
             .get(`/validate-rut?rut=${rut}`)

@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Instalacion preliminar') {
+        stage('Instalaciones necesarias (preliminar)') {
 			agent{
 				docker{
 					image 'node:22'
@@ -26,7 +26,7 @@ pipeline {
 				}
 			}
 		}
-		stage('QA Sonarqube'){
+		stage('Etapa QA Sonarqube'){
 			agent{
 				docker{
 					image 'sonarsource/sonar-scanner-cli'
@@ -44,7 +44,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Empaquetado y Delivery'){
+		stage('Etapa Empaquetado y Delivery'){
 			steps{
 				script{
 					docker.withRegistry('http://localhost:8082', 'nexus-credentials'){	
